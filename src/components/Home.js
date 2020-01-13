@@ -1,15 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import AppBar from "./components/AppBar";
+import NavigationBar from "./NavigationBar";
+import LineChartContainer from "./BasicLineGraph/LineChartContainer";
 
 class Home extends React.Component {
   componentDidMount() {}
 
   render() {
-    return <AppBar />;
+    return (
+      <div>
+        <p>Please select the dataset you would like to explore</p>
+        <LineChartContainer />
+      </div>
+    );
   }
 }
+
 const mapStateToProps = ReduxState => ({});
 
 const mapDispatchToProps = {};
