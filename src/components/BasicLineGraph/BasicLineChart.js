@@ -25,10 +25,15 @@ export default class BasicLineChart extends PureComponent {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="Periods" label="Year" tickSize="5" />
-        <YAxis />
+        <YAxis dataKey="Men_117" />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="" stroke="#888" activeDot={{ r: 8 }} />
+        <Line
+          type="monotone"
+          dataKey="Men_117"
+          stroke="#888"
+          activeDot={{ r: 8 }}
+        />
       </LineChart>
     );
   }
