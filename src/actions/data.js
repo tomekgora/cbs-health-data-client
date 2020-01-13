@@ -4,17 +4,19 @@ const baseUrl = "http://localhost:4000";
 
 function dataFetched(data) {
   return {
-    type: "DATA_FETCHED",
+    type: "DATA_RECEIVED",
     payload: data
   };
 }
 
 export const fetchData = selection => dispatch => {
+  console.log("Request is being made");
   request
-    .get(`${baseUrl}/data`)
-    .query({ selection })
+    .post(`${baseUrl}/data`)
+    .send({ selection: selection })
     .then(res => {
+      console.log("response received", res.body);
       dispatch(dataFetched(res.body));
     })
-    .catch(console.error);
+    .catch(err => console.error(err));
 };

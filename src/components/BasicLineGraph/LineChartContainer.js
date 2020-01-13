@@ -5,15 +5,18 @@ import BasicLineChart from "./BasicLineChart";
 
 class LineChartContainer extends Component {
   componentDidMount() {
+    console.log("LineChartContainer ComponentDidMount");
     const selection = "Periods,+Men_117";
-    fetchData(selection);
+    this.props.fetchData(selection);
+    console.log("fetchData ran");
   }
 
   render() {
+    console.log("The LineChart Container rendered?", this.props.data.value);
     return (
       <div>
         <h2>Data Chart</h2>
-        <BasicLineChart />
+        <BasicLineChart data={this.props.data.value} />
       </div>
     );
   }
@@ -25,7 +28,9 @@ function mapStateToProps(reduxState) {
   };
 }
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  fetchData
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LineChartContainer);
 
