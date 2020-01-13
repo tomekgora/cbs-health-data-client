@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchData } from "../actions/data";
+import { fetchData } from "../../actions/data";
+import BasicLineChart from "./BasicLineChart";
 
-export default class LineChartContainer extends Component {
-
-  // componentDidMount() {
-  //     const selection = "Periods,+Men_117"
-  //     fetchData(selection)
-  // };
+class LineChartContainer extends Component {
+  componentDidMount() {
+    const selection = "Periods,+Men_117";
+    fetchData(selection);
+  }
 
   render() {
-    // TODO: selection choices
-
-} // ends here
+    return (
+      <div>
+        <h2>Data Chart</h2>
+        <BasicLineChart />
+      </div>
+    );
+  }
+}
 
 function mapStateToProps(reduxState) {
   return {
@@ -22,7 +27,6 @@ function mapStateToProps(reduxState) {
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(LineChartContainer)
-
+export default connect(mapStateToProps, mapDispatchToProps)(LineChartContainer);
 
 // https://nivo.rocks/storybook/?path=/story/heatmap--square-cells
