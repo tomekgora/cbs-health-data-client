@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import PersonIcon from "@material-ui/icons/Person";
 import GroupIcon from "@material-ui/icons/Group";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,8 +18,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   userIcon: {
-    marginRight: theme.spacing(0),
-    marginLeft: theme.spacing(1)
+    // marginLeft: theme.spacing(1)
   },
   title: {
     flexGrow: 1
@@ -43,20 +43,24 @@ export default function NavigationBar() {
           <Typography variant="h6" className={classes.title}>
             Welcome to the page
           </Typography>
-          <IconButton
-            className={classes.userIcon}
-            color="inherit"
-            arial-label="logged-in"
-          >
-            <GroupIcon />
-          </IconButton>
-          <IconButton
-            className={classes.userIcon}
-            color="inherit"
-            arial-label="logged-in"
-          >
-            <PersonIcon />
-          </IconButton>
+          <Tooltip title="Groups">
+            <IconButton
+              className={classes.userIcon}
+              color="inherit"
+              arial-label="my-groups"
+            >
+              <GroupIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Profile">
+            <IconButton
+              className={classes.userIcon}
+              color="inherit"
+              arial-label="logged-in"
+            >
+              <PersonIcon />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
       </AppBar>
     </div>
