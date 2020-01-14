@@ -23,7 +23,7 @@ class LineChartContainer extends Component {
           <h2>Data Chart</h2>
           {/* <BasicLineChart data={this.props.data.value} /> */}
           <div style={{ height: 300 }}>
-            <ResponsiveLineChart />
+            <ResponsiveLineChart data={this.props.data} />
           </div>
         </div>
       );
