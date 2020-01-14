@@ -1,10 +1,9 @@
 import React from "react";
 import { ResponsiveLine } from "@nivo/line";
+import data from "./../data";
 
 class ResponsiveLineChart extends React.Component {
   render() {
-    const { data } = this.props;
-
     return (
       <ResponsiveLine
         data={data}

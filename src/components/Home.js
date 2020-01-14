@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
 import LineChartContainer from "./BasicLineGraph/LineChartContainer";
-import CollapsibleMenu from "./CollapsibleMenu";
+// import CollapsibleMenu from "./CollapsibleMenu";
+import QuerySelectionDrawer from "./QuerySelectionDrawer";
 
 class Home extends React.Component {
   componentDidMount() {}
@@ -12,8 +13,11 @@ class Home extends React.Component {
     return (
       <div>
         <p>Please select the dataset you would like to explore</p>
-        <LineChartContainer />
-        <CollapsibleMenu />
+        <div>
+          <LineChartContainer />
+        </div>
+        <QuerySelectionDrawer />
+        {/* <CollapsibleMenu /> */}
       </div>
     );
   }

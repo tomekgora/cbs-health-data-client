@@ -9,6 +9,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import CollapsibleMenu from "./CollapsibleMenu";
+import { ClickAwayListener } from "@material-ui/core";
 
 // Needs appropriate container to work
 
@@ -21,10 +23,7 @@ const useStyles = makeStyles({
 export default function QuerySelectionDrawer() {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false
+    left: false
   });
 
   const toggleDrawer = (side, open) => event => {
@@ -42,10 +41,11 @@ export default function QuerySelectionDrawer() {
     <div
       className={classes.list}
       role="presentation"
-      onClick={toggleDrawer(side, false)}
+      // onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
-      <List>
+      <CollapsibleMenu />
+      {/* <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
@@ -65,7 +65,7 @@ export default function QuerySelectionDrawer() {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </div>
   );
 

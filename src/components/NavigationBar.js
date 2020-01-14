@@ -40,9 +40,7 @@ export default function NavigationBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Welcome to the page
-          </Typography>
+          <Typography variant="h6" className={classes.title}></Typography>
           <Tooltip title="Groups">
             <IconButton
               className={classes.userIcon}
