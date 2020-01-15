@@ -1,20 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
+import NavigationBar from "./NavigationBar";
 import LineChartContainer from "./BasicLineGraph/LineChartContainer";
 // import CollapsibleMenu from "./CollapsibleMenu";
 import QuerySelectionDrawer from "./QuerySelectionDrawer";
 
 class Home extends React.Component {
+  state = {
+    formSelections: []
+  };
   componentDidMount() {}
+
+  handleSubmit = event => {
+    event.preventDefault();
+  };
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
 
   render() {
     return (
       <div>
+        <NavigationBar />
         <h2>Health data from 1900</h2>
         <div>
           <LineChartContainer />
         </div>
-        <QuerySelectionDrawer />
+        <form onSubmit={this.handleSubmit}>
+          <QuerySelectionDrawer
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+        </form>
         {/* <CollapsibleMenu /> */}
       </div>
     );

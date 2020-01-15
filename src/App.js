@@ -12,7 +12,6 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <div>
-          <NavigationBar />
           <Route path="/" component={Home} />
           <Route path="/Chart" component={LineChartContainer} />
         </div>

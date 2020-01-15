@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import CollapsibleMenu from "./CollapsibleMenu";
-import { ClickAwayListener } from "@material-ui/core";
+// import { ClickAwayListener } from "@material-ui/core";
 
 // Needs appropriate container to work
 
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function QuerySelectionDrawer() {
+export default function QuerySelectionDrawer(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: false
@@ -37,13 +37,16 @@ export default function QuerySelectionDrawer() {
       // onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
-      <CollapsibleMenu />
+      <CollapsibleMenu
+        handleChange={props.handleChange}
+        handleSubmit={props.handleSubmit}
+      />
     </div>
   );
 
   return (
     <div>
-      <Button onClick={toggleDrawer("left", true)}>Open Left</Button>
+      <Button onClick={toggleDrawer("left", true)}>Graph Options</Button>
       <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
         {sideList("left")}
       </Drawer>

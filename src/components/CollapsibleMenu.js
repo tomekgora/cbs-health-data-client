@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SimpleExpansionPanel() {
+export default function SimpleExpansionPanel(props) {
   const classes = useStyles();
   const diseaseList = [
     { label: "Mumps", value: "Mumps_6" },
@@ -52,10 +52,7 @@ export default function SimpleExpansionPanel() {
           <Typography className={classes.heading}>Date Range</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <Typography>TODO: Year selection</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel>
@@ -72,7 +69,14 @@ export default function SimpleExpansionPanel() {
               return (
                 <FormControlLabel
                   value={disease.value}
-                  control={<Checkbox color="primary" />}
+                  control={
+                    <Checkbox
+                      onChange={props.onChange}
+                      value={disease.value}
+                      name={disease.label}
+                      color="primary"
+                    />
+                  }
                   label={disease.label}
                   labelPlacement="end"
                 />

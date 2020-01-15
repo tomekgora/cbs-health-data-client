@@ -10,7 +10,11 @@ class ResponsiveLineChart extends React.Component {
         <ResponsiveLine
           data={this.props.data}
           margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-          xScale={{ type: "point" }}
+          xScale={{
+            type: "linear",
+            min: "auto",
+            max: "auto"
+          }}
           yScale={{
             type: "linear",
             min: "auto",
@@ -22,7 +26,7 @@ class ResponsiveLineChart extends React.Component {
           axisRight={null}
           axisBottom={{
             orient: "bottom",
-            tickSize: 5,
+            tickSize: 1,
             tickPadding: 5,
             tickRotation: 0,
             legend: "Year",
@@ -34,7 +38,7 @@ class ResponsiveLineChart extends React.Component {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "Deaths x 1000",
+            legend: "Incidence per 1000 people",
             legendOffset: -40,
             legendPosition: "middle"
           }}

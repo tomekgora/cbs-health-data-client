@@ -14,7 +14,7 @@ arr = [
     const keysToLookFor = arr.map(e => e.id); //["men", "women"]
     keysToLookFor.forEach(key => {
       const newdata = {
-        x: dataPoint.Periods,
+        x: dataPoint.Periods.substring(0, 4), // getting just the year out
         y: dataPoint[key]
       };
       arr.find(el => el.id === key).data.push(newdata);
