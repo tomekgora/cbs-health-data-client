@@ -8,7 +8,7 @@ import CollapsibleMenu from "../CollapsibleMenu";
 class LineChartContainer extends Component {
   componentDidMount() {
     console.log("LineChartContainer ComponentDidMount");
-    const selection = "Periods,+Men_117";
+    const selection = "Periods,+Men_117,+Women_118";
     this.props.fetchData(selection);
     console.log("fetchData ran");
   }
@@ -20,9 +20,8 @@ class LineChartContainer extends Component {
     } else {
       return (
         <div>
-          <h2>Data Chart</h2>
           {/* <BasicLineChart data={this.props.data.value} /> */}
-          <div style={{ height: 300 }}>
+          <div style={{ height: 500 }}>
             <ResponsiveLineChart data={this.props.data} />
           </div>
         </div>

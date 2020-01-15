@@ -26,7 +26,7 @@ class ResponsiveLineChart extends React.Component {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "transportation",
+            legend: "Year",
             legendOffset: 36,
             legendPosition: "middle"
           }}
@@ -35,12 +35,12 @@ class ResponsiveLineChart extends React.Component {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "count",
+            legend: "Deaths x 1000",
             legendOffset: -40,
             legendPosition: "middle"
           }}
           colors={{ scheme: "nivo" }}
-          pointSize={10}
+          pointSize={5}
           pointColor={{ theme: "background" }}
           pointBorderWidth={2}
           pointBorderColor={{ from: "serieColor" }}

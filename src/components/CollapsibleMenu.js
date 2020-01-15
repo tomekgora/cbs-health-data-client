@@ -1,13 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,84 +15,83 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
-    flexBasis: "100%",
-    flexShrink: 0
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary
+    fontWeight: theme.typography.fontWeightRegular
   }
 }));
 
-export default function CollapsibleMenu() {
+export default function SimpleExpansionPanel() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleChange = panel => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+  const diseaseList = [
+    // {label: "Mumps", value: },
+    "Typhoid",
+    "Diphtheria",
+    "Hepatitis A",
+    "Whooping Cough",
+    "Legionnaires' disease",
+    "Malaria",
+    "Measles",
+    "Meningococcal disease",
+    "Paratyphoid B",
+    "Polio",
+    "Q Fever",
+    "Rubella",
+    "Shingella",
+    "Tuberculosis",
+    "AIDS/HIV"
+  ];
 
   return (
     <div className={classes.root}>
-      <ExpansionPanel
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
+      <ExpansionPanel>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          aria-controls="panel1a-content"
+          id="panel1a-header"
         >
-          <Typography className={classes.heading}>Series Choice</Typography>
-          <Typography className={classes.secondaryHeading}></Typography>
+          <Typography className={classes.heading}>Date Range</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            <FormGroup>
-              <FormControlLabel
-                value="end"
-                control={<Checkbox color="primary" />}
-                label="End"
-                labelPlacement="end"
-              />
-              <FormControlLabel
-                value="end"
-                control={<Checkbox color="primary" />}
-                label="something"
-                labelPlacement="end"
-              />
-            </FormGroup>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
+      <ExpansionPanel>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          aria-controls="panel2a-content"
+          id="panel2a-header"
         >
-          <Typography className={classes.heading}>Series Choice</Typography>
-          <Typography className={classes.secondaryHeading}></Typography>
+          <Typography className={classes.heading}>Diseases</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <FormGroup aria-label="position" column>
+            {diseaseList.map(disease => {
+              return (
+                <FormControlLabel
+                  value="end"
+                  control={<Checkbox color="primary" />}
+                  label={disease}
+                  labelPlacement="end"
+                />
+              );
+            })}
+          </FormGroup>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>Chart Type</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            <FormGroup>
-              <FormControlLabel
-                value="end"
-                control={<Checkbox color="primary" />}
-                label="End"
-                labelPlacement="end"
-              />
-              <FormControlLabel
-                value="end"
-                control={<Checkbox color="primary" />}
-                label="something"
-                labelPlacement="end"
-              />
-            </FormGroup>
+            <p>Line chart</p>
+            <p>Bar chart</p>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

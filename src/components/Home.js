@@ -1,7 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import NavigationBar from "./NavigationBar";
 import LineChartContainer from "./BasicLineGraph/LineChartContainer";
 // import CollapsibleMenu from "./CollapsibleMenu";
 import QuerySelectionDrawer from "./QuerySelectionDrawer";
@@ -12,7 +10,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <p>Please select the dataset you would like to explore</p>
+        <h2>Infectious disease occurence, from 1900</h2>
         <div>
           <LineChartContainer />
         </div>
