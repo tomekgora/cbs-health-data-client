@@ -1,1 +1,5 @@
-export function queryConstructor() {}
+export function queryConstructor(formInputs) {
+  let selection = "";
+
+  return selection;
+}

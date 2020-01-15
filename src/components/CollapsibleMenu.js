@@ -22,22 +22,23 @@ const useStyles = makeStyles(theme => ({
 export default function SimpleExpansionPanel() {
   const classes = useStyles();
   const diseaseList = [
-    // {label: "Mumps", value: },
-    "Typhoid",
-    "Diphtheria",
-    "Hepatitis A",
-    "Whooping Cough",
-    "Legionnaires' disease",
-    "Malaria",
-    "Measles",
-    "Meningococcal disease",
-    "Paratyphoid B",
-    "Polio",
-    "Q Fever",
-    "Rubella",
-    "Shingella",
-    "Tuberculosis",
-    "AIDS/HIV"
+    { label: "Mumps", value: "Mumps_6" },
+    { label: "Typhoid", value: "Typhoid_7" },
+    { label: "Diphteria", value: "Diphtheria_8" },
+    { label: "Hepatitis A", value: "HepatitisA_9" },
+    { label: "Whooping Cough", value: "WhoopingCough_10" },
+    { label: "Legionnaires Disease", value: "LegionnairesDisease_11" },
+    { label: "Malaria", value: "Malaria_12" },
+    { label: "Measles", value: "Measles_13" },
+    { label: "Meningococcal Disease", value: "MeningococcalDisease_14" },
+    { label: "Paratyphoid B", value: "ParatyphoidB_15" },
+    { label: "Polio", value: "Polio_16" },
+    { label: "QFever", value: "QFever_17" },
+    { label: "Rubella", value: "Rubella_18" },
+    { label: "Shigella", value: "Shigella_19" },
+    { label: "Tuberculosis", value: "Tuberculosis_20" },
+    { label: "AIDS", value: "AIDS_21" },
+    { label: "HIV Infected", value: "HIVInfected_22" }
   ];
 
   return (
@@ -70,9 +71,9 @@ export default function SimpleExpansionPanel() {
             {diseaseList.map(disease => {
               return (
                 <FormControlLabel
-                  value="end"
+                  value={disease.value}
                   control={<Checkbox color="primary" />}
-                  label={disease}
+                  label={disease.label}
                   labelPlacement="end"
                 />
               );

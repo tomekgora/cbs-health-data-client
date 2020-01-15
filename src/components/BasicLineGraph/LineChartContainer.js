@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchData } from "../../actions/data";
-import BasicLineChart from "./BasicLineChart";
 import ResponsiveLineChart from "../NivoLineChart/ResponsiveLineChart";
-import CollapsibleMenu from "../CollapsibleMenu";
 
 class LineChartContainer extends Component {
   componentDidMount() {
