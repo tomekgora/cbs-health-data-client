@@ -8,13 +8,13 @@ import CollapsibleMenu from "../CollapsibleMenu";
 class LineChartContainer extends Component {
   componentDidMount() {
     console.log("LineChartContainer ComponentDidMount");
-    const selection = "Periods,+Men_117,+Women_118";
+    const selection = "Periods,HeavySmokers_27,Smokers_26,";
     this.props.fetchData(selection);
     console.log("fetchData ran");
   }
 
   render() {
-    console.log("The LineChart Container rendered?", this.props.data.value);
+    console.log("The LineChart Container rendered?", this.props.data);
     if (!this.props.data) {
       return "Loading...";
     } else {

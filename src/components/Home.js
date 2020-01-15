@@ -10,7 +10,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h2>Infectious disease occurence, from 1900</h2>
+        <h2>Health data from 1900</h2>
         <div>
           <LineChartContainer />
         </div>

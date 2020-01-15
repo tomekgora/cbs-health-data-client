@@ -4,19 +4,19 @@ import data from "./../data";
 
 class ResponsiveLineChart extends React.Component {
   render() {
-    if (!this.props.data.value) {
+    if (!this.props.data) {
       return "Loading...";
     } else {
       return (
         <ResponsiveLine
-          data={data}
+          data={this.props.data}
           margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
           xScale={{ type: "point" }}
           yScale={{
             type: "linear",
             min: "auto",
             max: "auto",
-            stacked: true,
+            stacked: false,
             reverse: false
           }}
           axisTop={null}

@@ -1,4 +1,5 @@
 import request from "superagent";
+import { lineChartDataProcessing } from "../logic/linechartDataProcessing";
 
 const baseUrl = "http://localhost:4000";
 
@@ -15,8 +16,9 @@ export const fetchData = selection => dispatch => {
     .post(`${baseUrl}/data`)
     .send({ selection: selection })
     .then(res => {
-      console.log("response received", res.body);
-      dispatch(dataFetched(res.body));
+      const processedData = lineChartDataProcessing(res.body);
+      console.log("transformed data", processedData);
+      dispatch(dataFetched(processedData));
     })
     .catch(err => console.error(err));
 };
