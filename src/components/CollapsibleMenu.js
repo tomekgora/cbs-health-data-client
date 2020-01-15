@@ -21,25 +21,25 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleExpansionPanel(props) {
   const classes = useStyles();
-  const diseaseList = [
-    { label: "Mumps", value: "Mumps_6" },
-    { label: "Typhoid", value: "Typhoid_7" },
-    { label: "Diphteria", value: "Diphtheria_8" },
-    { label: "Hepatitis A", value: "HepatitisA_9" },
-    { label: "Whooping Cough", value: "WhoopingCough_10" },
-    { label: "Legionnaires Disease", value: "LegionnairesDisease_11" },
-    { label: "Malaria", value: "Malaria_12" },
-    { label: "Measles", value: "Measles_13" },
-    { label: "Meningococcal Disease", value: "MeningococcalDisease_14" },
-    { label: "Paratyphoid B", value: "ParatyphoidB_15" },
-    { label: "Polio", value: "Polio_16" },
-    { label: "QFever", value: "QFever_17" },
-    { label: "Rubella", value: "Rubella_18" },
-    { label: "Shigella", value: "Shigella_19" },
-    { label: "Tuberculosis", value: "Tuberculosis_20" },
-    { label: "AIDS", value: "AIDS_21" },
-    { label: "HIV Infected", value: "HIVInfected_22" }
-  ];
+  // const diseaseList = [
+  //   { label: "Mumps", value: "Mumps_6" },
+  //   { label: "Typhoid", value: "Typhoid_7" },
+  //   { label: "Diphteria", value: "Diphtheria_8" },
+  //   { label: "Hepatitis A", value: "HepatitisA_9" },
+  //   { label: "Whooping Cough", value: "WhoopingCough_10" },
+  //   { label: "Legionnaires Disease", value: "LegionnairesDisease_11" },
+  //   { label: "Malaria", value: "Malaria_12" },
+  //   { label: "Measles", value: "Measles_13" },
+  //   { label: "Meningococcal Disease", value: "MeningococcalDisease_14" },
+  //   { label: "Paratyphoid B", value: "ParatyphoidB_15" },
+  //   { label: "Polio", value: "Polio_16" },
+  //   { label: "QFever", value: "QFever_17" },
+  //   { label: "Rubella", value: "Rubella_18" },
+  //   { label: "Shigella", value: "Shigella_19" },
+  //   { label: "Tuberculosis", value: "Tuberculosis_20" },
+  //   { label: "AIDS", value: "AIDS_21" },
+  //   { label: "HIV Infected", value: "HIVInfected_22" }
+  // ];
 
   return (
     <div className={classes.root}>
@@ -65,7 +65,25 @@ export default function SimpleExpansionPanel(props) {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <FormGroup aria-label="position" column>
-            {diseaseList.map(disease => {
+            {Object.keys(props.data).map(key => {
+              return (
+                <FormControlLabel
+                  value={key}
+                  label={key.substring(0, key.indexOf("_"))}
+                  labelPlacement="end"
+                  control={
+                    <Checkbox
+                      onChange={props.onChange}
+                      value={key}
+                      name={key.substring(0, key.indexOf("_"))}
+                      key={key}
+                      checked={props.data[key]}
+                    />
+                  }
+                />
+              );
+            })}
+            {/* {diseaseList.map(disease => {
               return (
                 <FormControlLabel
                   value={disease.value}
@@ -73,7 +91,7 @@ export default function SimpleExpansionPanel(props) {
                     <Checkbox
                       onChange={props.onChange}
                       value={disease.value}
-                      name={disease.label}
+                      name={disease.value}
                       color="primary"
                     />
                   }
@@ -81,7 +99,7 @@ export default function SimpleExpansionPanel(props) {
                   labelPlacement="end"
                 />
               );
-            })}
+            })} */}
           </FormGroup>
         </ExpansionPanelDetails>
       </ExpansionPanel>

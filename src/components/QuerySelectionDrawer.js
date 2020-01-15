@@ -38,6 +38,7 @@ export default function QuerySelectionDrawer(props) {
       onKeyDown={toggleDrawer(side, false)}
     >
       <CollapsibleMenu
+        data={props.data}
         handleChange={props.handleChange}
         handleSubmit={props.handleSubmit}
       />
