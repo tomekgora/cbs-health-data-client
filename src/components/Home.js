@@ -4,6 +4,7 @@ import NavigationBar from "./NavigationBar";
 import LineChartContainer from "./BasicLineGraph/LineChartContainer";
 // import CollapsibleMenu from "./CollapsibleMenu";
 import QuerySelectionDrawer from "./QuerySelectionDrawer";
+import { fetchData } from "../actions/data";
 
 class Home extends React.Component {
   state = {
@@ -30,6 +31,18 @@ class Home extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
+    let keysArray = Object.keys(this.state);
+    console.log("KEyS", keysArray);
+    let queryKeysArray = keysArray.filter(
+      disease => this.state[disease] === true
+    );
+    console.log("KEyS", queryKeysArray);
+    let selection = "Periods," + queryKeysArray.join(",");
+    // .map(
+    //   disease => this.state[disease] === true
+    // );
+    console.log("This is the SELECTION STRING", selection);
+    this.props.fetchData(selection);
     // grab all the values from objexts where checked: true
     // join them into a query string
     // pass this query string SELECTION to the reducer
@@ -39,14 +52,11 @@ class Home extends React.Component {
     // allow the user to use the same query string at a later time
   };
 
-  onChange = event => {
-    const target = event.target;
-    const value = target.checked;
-    const name = target.name;
+  onChange = event =>
     this.setState({
-      [name]: value
+      ...this.state,
+      [event.target.name]: !this.state[event.target.name]
     });
-  };
 
   // [event.target.name]: event.target.checked
 
@@ -58,13 +68,11 @@ class Home extends React.Component {
         <div>
           <LineChartContainer />
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <QuerySelectionDrawer
-            data={this.state}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-        </form>
+        <QuerySelectionDrawer
+          choices={this.state}
+          onChange={this.onChange}
+          onSubmit={this.onSubmit}
+        />
         {/* <CollapsibleMenu /> */}
       </div>
     );
@@ -73,7 +81,9 @@ class Home extends React.Component {
 
 const mapStateToProps = ReduxState => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  fetchData
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 

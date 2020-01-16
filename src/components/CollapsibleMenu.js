@@ -21,6 +21,28 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleExpansionPanel(props) {
   const classes = useStyles();
+  // const [state, setState] = React.useState({
+  //   Mumps_6: false,
+  //   Typhoid_7: false,
+  //   Diphtheria_8: false,
+  //   HepatitisA_9: false,
+  //   WhoopingCough_10: false,
+  //   LegionnairesDisease_11: false,
+  //   Malaria_12: false,
+  //   Measles_13: false,
+  //   MeningococcalDisease_14: false,
+  //   ParatyphoidB_15: false,
+  //   Polio_16: false,
+  //   QFever_17: false,
+  //   Rubella_18: false,
+  //   Shigella_19: false,
+  //   Tuberculosis_20: false,
+  //   AIDS_21: false,
+  //   HIVInfected_22: false
+  // });
+
+  // const handleChange = event =>
+  // setState(s => ({ ...s, [event.target.name]: !s[event.target.name] }));
   // const diseaseList = [
   //   { label: "Mumps", value: "Mumps_6" },
   //   { label: "Typhoid", value: "Typhoid_7" },
@@ -65,41 +87,38 @@ export default function SimpleExpansionPanel(props) {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <FormGroup aria-label="position" column>
-            {Object.keys(props.data).map(key => {
+            {/* {Object.keys(state).map(key => {
               return (
                 <FormControlLabel
-                  value={key}
                   label={key.substring(0, key.indexOf("_"))}
                   labelPlacement="end"
                   control={
                     <Checkbox
-                      onChange={props.onChange}
-                      value={key}
-                      name={key.substring(0, key.indexOf("_"))}
+                      onChange={handleChange}
+                      name={key}
                       key={key}
-                      checked={props.data[key]}
+                      checked={state[key]}
                     />
                   }
-                />
-              );
-            })}
-            {/* {diseaseList.map(disease => {
-              return (
-                <FormControlLabel
-                  value={disease.value}
-                  control={
-                    <Checkbox
-                      onChange={props.onChange}
-                      value={disease.value}
-                      name={disease.value}
-                      color="primary"
-                    />
-                  }
-                  label={disease.label}
-                  labelPlacement="end"
                 />
               );
             })} */}
+            {Object.keys(props.choices).map(key => {
+              return (
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      onChange={props.onChange}
+                      name={key}
+                      color="secondary"
+                      value={props.choices[key]}
+                    />
+                  }
+                  label={key.substring(0, key.indexOf("_"))}
+                  labelPlacement="end"
+                />
+              );
+            })}
           </FormGroup>
         </ExpansionPanelDetails>
       </ExpansionPanel>
