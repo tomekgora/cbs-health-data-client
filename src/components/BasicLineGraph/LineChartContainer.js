@@ -1,25 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchData } from "../../actions/data";
-import BasicLineChart from "./BasicLineChart";
+import ResponsiveLineChart from "../NivoLineChart/ResponsiveLineChart";
+import BumpGraph from "./BumpGraph";
 
 class LineChartContainer extends Component {
   componentDidMount() {
     console.log("LineChartContainer ComponentDidMount");
-    const selection = "Periods,+Men_117";
+    const selection = "Periods,HeavySmokers_27,Smokers_26,";
     this.props.fetchData(selection);
     console.log("fetchData ran");
   }
 
   render() {
-    console.log("The LineChart Container rendered?", this.props.data.value);
+    console.log("The LineChart Container rendered?", this.props.data);
     if (!this.props.data) {
       return "Loading...";
     } else {
       return (
         <div>
-          <h2>Data Chart</h2>
-          <BasicLineChart data={this.props.data.value} />
+          {/* <BasicLineChart data={this.props.data.value} /> */}
+          <div style={{ height: 500 }}>
+            <ResponsiveLineChart data={this.props.data} />
+          </div>
+          {/* <div style={{ height: 500 }}>
+            <BumpGraph data={this.props.data} />
+          </div> */}
         </div>
       );
     }
