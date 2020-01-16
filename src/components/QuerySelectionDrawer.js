@@ -6,6 +6,12 @@ import CollapsibleMenu from "./CollapsibleMenu";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormGroup from "@material-ui/core/FormGroup";
+import Typography from "@material-ui/core/Typography";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Slider from "./Slider";
 // import { ClickAwayListener } from "@material-ui/core";
 
 // Needs appropriate container to work
@@ -40,29 +46,57 @@ export default function QuerySelectionDrawer(props) {
       // onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
-      <form onSubmit={props.onSubmit}>
-        <FormGroup aria-label="position" column>
-          {Object.keys(props.choices).map(key => {
-            return (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    onChange={props.onChange}
-                    name={key}
-                    color="secondary"
-                    checked={props.choices[key]}
+      {/* <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>Choose Period</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Slider value={props.slider.value} />
+        </ExpansionPanelDetails>
+      </ExpansionPanel> */}
+      <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>Disease Choice</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <form onSubmit={props.onSubmit}>
+            <FormGroup aria-label="position" column>
+              {Object.keys(props.choices).map(key => {
+                return (
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={props.onChange}
+                        name={key}
+                        color="secondary"
+                        checked={props.choices[key]}
+                      />
+                    }
+                    label={key.substring(0, key.indexOf("_"))}
+                    labelPlacement="end"
                   />
-                }
-                label={key.substring(0, key.indexOf("_"))}
-                labelPlacement="end"
-              />
-            );
-          })}
-        </FormGroup>
-        <Button variant="contained" color="secondary" type="submit">
-          Submit choices
-        </Button>
-      </form>
+                );
+              })}
+            </FormGroup>
+            <Button
+              variant="contained"
+              color="secondary"
+              type="submit"
+              onClick={toggleDrawer("left", false)}
+            >
+              Submit choices
+            </Button>
+          </form>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
       {/* <CollapsibleMenu
         choices={props.choices}
         onChange={props.handleChange}

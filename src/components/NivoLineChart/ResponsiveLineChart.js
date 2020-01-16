@@ -9,7 +9,7 @@ class ResponsiveLineChart extends React.Component {
       return (
         <ResponsiveLine
           data={this.props.data}
-          margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+          margin={{ top: 50, right: 150, bottom: 50, left: 90 }}
           xScale={{
             type: "linear",
             min: "auto",
@@ -38,8 +38,8 @@ class ResponsiveLineChart extends React.Component {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "Incidence per 1000 people",
-            legendOffset: -40,
+            legend: "Number of Notifications",
+            legendOffset: -50,
             legendPosition: "middle"
           }}
           colors={{ scheme: "nivo" }}

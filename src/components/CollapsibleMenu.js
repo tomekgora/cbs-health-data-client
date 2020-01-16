@@ -103,7 +103,7 @@ export default function SimpleExpansionPanel(props) {
                 />
               );
             })} */}
-            {Object.keys(props.choices).map(key => {
+            {/* {Object.keys(props.choices).map(key => {
               return (
                 <FormControlLabel
                   control={
@@ -118,7 +118,7 @@ export default function SimpleExpansionPanel(props) {
                   labelPlacement="end"
                 />
               );
-            })}
+            })} */}
           </FormGroup>
         </ExpansionPanelDetails>
       </ExpansionPanel>

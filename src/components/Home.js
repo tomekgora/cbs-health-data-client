@@ -8,33 +8,52 @@ import { fetchData } from "../actions/data";
 
 class Home extends React.Component {
   state = {
-    Mumps_6: false,
-    Typhoid_7: false,
-    Diphtheria_8: false,
-    HepatitisA_9: false,
-    WhoopingCough_10: false,
-    LegionnairesDisease_11: false,
-    Malaria_12: false,
-    Measles_13: false,
-    MeningococcalDisease_14: false,
-    ParatyphoidB_15: false,
-    Polio_16: false,
-    QFever_17: false,
-    Rubella_18: false,
-    Shigella_19: false,
-    Tuberculosis_20: false,
-    AIDS_21: false,
-    HIVInfected_22: false
+    chartType: {
+      responsiveLineChart: true,
+      responsiveBumpChart: false
+    },
+    timePeriodRange: {
+      min: 1900,
+      max: 2018,
+      slider: null
+    },
+    diseases: {
+      Mumps_6: false,
+      Typhoid_7: false,
+      Diphtheria_8: false,
+      HepatitisA_9: false,
+      WhoopingCough_10: false,
+      LegionnairesDisease_11: false,
+      Malaria_12: false,
+      Measles_13: false,
+      MeningococcalDisease_14: false,
+      ParatyphoidB_15: false,
+      Polio_16: false,
+      QFever_17: false,
+      Rubella_18: false,
+      Shigella_19: false,
+      Tuberculosis_20: false,
+      AIDS_21: false,
+      HIVInfected_22: false
+    }
   };
 
   componentDidMount() {}
 
+  sliderChange = event => {
+    this.setState({
+      timePeriodRange: {
+        [event.target.name]: [event.target.value]
+      }
+    });
+  };
+
   onSubmit = event => {
     event.preventDefault();
-    let keysArray = Object.keys(this.state);
+    let keysArray = Object.keys(this.state.diseases);
     console.log("KEyS", keysArray);
     let queryKeysArray = keysArray.filter(
-      disease => this.state[disease] === true
+      disease => this.state.diseases[disease] === true
     );
     console.log("KEyS", queryKeysArray);
     let selection = "Periods," + queryKeysArray.join(",");
@@ -54,8 +73,10 @@ class Home extends React.Component {
 
   onChange = event =>
     this.setState({
-      ...this.state,
-      [event.target.name]: !this.state[event.target.name]
+      diseases: {
+        ...this.state.diseases,
+        [event.target.name]: !this.state.diseases[event.target.name]
+      }
     });
 
   // [event.target.name]: event.target.checked
@@ -64,12 +85,13 @@ class Home extends React.Component {
     return (
       <div>
         <NavigationBar />
-        <h2>Health data from 1950</h2>
+        <h2>Notifiable infectious diseases in the Netherlands 1975-2018</h2>
         <div>
           <LineChartContainer />
         </div>
         <QuerySelectionDrawer
-          choices={this.state}
+          slider={this.state.timePeriodRange}
+          choices={this.state.diseases}
           onChange={this.onChange}
           onSubmit={this.onSubmit}
         />

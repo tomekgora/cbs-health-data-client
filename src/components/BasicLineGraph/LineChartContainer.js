@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchData } from "../../actions/data";
 import ResponsiveLineChart from "../NivoLineChart/ResponsiveLineChart";
+import BumpGraph from "./BumpGraph";
 
 class LineChartContainer extends Component {
   componentDidMount() {
@@ -22,6 +23,9 @@ class LineChartContainer extends Component {
           <div style={{ height: 500 }}>
             <ResponsiveLineChart data={this.props.data} />
           </div>
+          {/* <div style={{ height: 500 }}>
+            <BumpGraph data={this.props.data} />
+          </div> */}
         </div>
       );
     }
