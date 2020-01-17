@@ -1,4 +1,4 @@
-<h3 align="center">CBS health data visualization</h3>
+<h2 align="center">CBS health data visualization</h2>
 <!-- badges --> 
 
 ### About
@@ -6,13 +6,22 @@ This App visualizes a subset of the "Health, lifestyle, health care use and supp
 (37852eng) for the years 1975-2019. The user can make a choice from a list of diseases belonging to the "notifiable infectious diseases" (18 series) topic group. Based on the choices the App fetches the appropriate data series from the oData CBS API via the server {link here} and generates a responsive line chart.
 
 ### Built With
-C
 - React-Redux
 - Nivo
 - Material-UI 
 
 ### Features
- -
+ - visualize data from the 37852eng dataset of CBS (https://opendata.cbs.nl/)
+ - simple data series selection 
+
+### Planned Features
+ - view multiple datasets available via the oData API
+ - select data series from full set of dataset topics
+ - dynamically generate selection lists from retrieved metadata
+ - offer a selection of graphing options (bar, stream, heatmap, stacking)
+ - allow users to save their queries for later review
+ - allow users to create and join groups
+ - allow users to shae their data visualizations with other users via groups
 
 ### Installation
 1. Clone the repo
@@ -23,6 +32,5 @@ git clone https://github.com/tomekgora/cbs-health-data-client.git
 ```sh
 npm install
 ```
-### Roadmap
-  - 
+
 
