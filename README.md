@@ -1,10 +1,15 @@
 # CBS health data visualization
- 
+
 ![badge](https://img.shields.io/github/languages/top/tomekgora/cbs-health-data-client)
 
 ### Table of contents
+- [Introduction](#introduction)
+- [Built With](#built-with)
+- [Features](#features)
+- [Planned Features](#planned-features)
+- [Installation](#installation)
 
-### About
+### Introduction
 This App visualizes a subset of the "Health, lifestyle, health care use and supply, causes of death; from 1900" datasrt 
 (37852eng) for the years 1975-2019. The user can make a choice from a list of diseases belonging to the "notifiable infectious diseases" (18 series) topic group. Based on the choices the App fetches the appropriate data series from the oData CBS API via the server {link here} and generates a responsive line chart.
 
@@ -27,6 +32,7 @@ This App visualizes a subset of the "Health, lifestyle, health care use and supp
  - allow users to share their data visualizations with other users via groups
 
 ### Installation
+#### Client
 1. Clone the repo
 ```sh
 git clone https://github.com/tomekgora/cbs-health-data-client.git
@@ -39,6 +45,10 @@ npm install
 ```sh
 npm start
 ```
+Specify port with ENV_PORT envorionmental variable
 
+#### Server
+
+### Deployment
 
 
