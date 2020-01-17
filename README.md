@@ -1,5 +1,4 @@
 <h3 align="center">CBS health data visualization</h3>
-<p align="center" 
 
 
 ### Installation
