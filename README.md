@@ -41,11 +41,15 @@ git clone https://github.com/tomekgora/cbs-health-data-client.git
 ```sh
 npm install
 ```
-3. To run the client locally
+3. Specify port with ENV_PORT envorionmental variable
+```sh 
+ENV_PORT || 4000
+```
+
+4. To run the client locally
 ```sh
 npm start
 ```
-Specify port with ENV_PORT envorionmental variable
 
 #### Server
 
