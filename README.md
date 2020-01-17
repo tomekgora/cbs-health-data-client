@@ -43,7 +43,7 @@ npm install
 ```
 3. Specify port with ENV_PORT envorionmental variable
 ```sh 
-ENV_PORT || 4000
+ENV_PORT || 3000
 ```
 
 4. To run the client locally
