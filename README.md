@@ -1,5 +1,8 @@
-<h2 align="center">CBS health data visualization</h2>
+<h1 align="center">CBS health data visualization</h1>
+<br> 
 <!-- badges --> 
+/github/languages/top/:user/:repo
+### Table of contents
 
 ### About
 This App visualizes a subset of the "Health, lifestyle, health care use and supply, causes of death; from 1900" datasrt 
@@ -21,7 +24,7 @@ This App visualizes a subset of the "Health, lifestyle, health care use and supp
  - offer a selection of graphing options (bar, stream, heatmap, stacking)
  - allow users to save their queries for later review
  - allow users to create and join groups
- - allow users to shae their data visualizations with other users via groups
+ - allow users to share their data visualizations with other users via groups
 
 ### Installation
 1. Clone the repo
@@ -32,5 +35,10 @@ git clone https://github.com/tomekgora/cbs-health-data-client.git
 ```sh
 npm install
 ```
+3. To run the client locally
+```sh
+npm start
+```
+
 
 
