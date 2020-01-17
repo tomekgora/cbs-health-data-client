@@ -1,7 +1,7 @@
 <h1 align="center">CBS health data visualization</h1>
 <br> 
 <!-- badges --> 
-/github/languages/top/:user/:repo
+![GitHub top language](https://img.shields.io/github/languages/top/tomekgora/cbs-health-data-client)
 ### Table of contents
 
 ### About
